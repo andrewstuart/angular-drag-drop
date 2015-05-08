@@ -26,7 +26,7 @@ angular.module('ngDrag').directive('ngDrag', function (DragData) {
       element.attr('draggable', 'true');
 
       if (iAttrs.dragEnd) {
-        iEle.on('dragend', function(e) {
+        element.on('dragend', function(e) {
           $scope.$eval(iAttrs.dragStart, {$event: e});
           $scope.$apply();
         });
