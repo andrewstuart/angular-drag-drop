@@ -48,6 +48,7 @@ module.exports = function(grunt) {
         'concat',
         'ngAnnotate',
         'uglify',
+        'docs'
     ]);
 
     grunt.registerTask('default', 'build');
