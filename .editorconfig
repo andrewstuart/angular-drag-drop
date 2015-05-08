@@ -1,0 +1,21 @@
+#Don't allow non-project-specific conventions to apply
+root = true
+
+[*]
+indent_style = space
+indent_size = 2
+
+#Stylesheets
+[*.{le,sa,sc,c}ss]
+#Nothing specific -- yet
+
+[*.js]
+quote_type = single
+curly_bracket_next_line = false
+
+[*.{x,ht}ml]
+indent_size = 2
+continuation_indent_size = 4
+
+[*.json]
+indent_size = 2

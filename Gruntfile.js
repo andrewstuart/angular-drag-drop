@@ -29,6 +29,15 @@ module.exports = function(grunt) {
                 tasks: ['build'],
                 options: { spawn: false }
             }
+        },
+        ngdocs: {
+          options: {
+            dest: 'docs'
+          },
+          ngdrag: {
+            src: ['src/**/*.js'],
+            title: 'ngDrag'
+          }
         }
     });
 

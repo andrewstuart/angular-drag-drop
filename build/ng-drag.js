@@ -3,14 +3,21 @@ angular.module('ngDrag', []);
 angular.module('ngDrag').directive('ngDrag', ["DragData", function (DragData) {
     return {
         restrict: 'A',
-        link: function postLink(scope, element, iAttrs) {
+        link: function postLink($scope, element, iAttrs) {
             element.attr('draggable', 'true');
+
+            if (iAttrs.dragStart) {
+                element.on('dragend', function(e) {
+                    $scope.$eval(iAttrs.dragStart, {$event: e});
+                    $scope.$apply();
+                });
+            }
 
             element.on('dragstart', function(e) {
                 e.stopPropagation();
                 e.originalEvent.dataTransfer.setData('ngdrag/type', iAttrs.ngDrag || 'ngdrag/id');
-                e.originalEvent.dataTransfer.setData(iAttrs.ngDrag || 'ngdrag/id', scope.$id);
-                DragData.add(scope);
+                e.originalEvent.dataTransfer.setData(iAttrs.ngDrag || 'ngdrag/id', $scope.$id);
+                DragData.add($scope);
             });
         }
     };
@@ -80,4 +87,4 @@ angular.module('ngDrag').service('DragData', function () {
             return index[id];
         }
     };
-})
+});
