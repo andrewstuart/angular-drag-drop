@@ -27,7 +27,7 @@ angular.module('ngDrag').directive('ngDrag', function (DragData) {
 
       if (iAttrs.dragEnd) {
         element.on('dragend', function(e) {
-          $scope.$eval(iAttrs.dragStart, {$event: e});
+          $scope.$eval(iAttrs.dragEnd, {$event: e});
           $scope.$apply();
         });
       }
