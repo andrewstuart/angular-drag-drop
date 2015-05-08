@@ -1,0 +1,23 @@
+{
+  "name": "ngdrag",
+  "version": "0.1.0",
+  "authors": [
+    "Andrew Stuart <andrew.stuart2@gmail.com>"
+  ],
+  "description": "Drag and drop for angular",
+  "main": "build/ng-drag.js",
+  "keywords": [
+    "drag",
+    "drop",
+    "angular"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "src"
+  ]
+}
