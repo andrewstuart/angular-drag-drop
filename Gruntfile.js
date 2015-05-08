@@ -26,7 +26,10 @@ module.exports = function(grunt) {
         watch: {
             all: {
                 files: ['src/**/*.js'],
-                tasks: ['build'],
+                tasks: [
+                  'build',
+                  'docs'
+                ],
                 options: { spawn: false }
             }
         },
@@ -48,4 +51,8 @@ module.exports = function(grunt) {
     ]);
 
     grunt.registerTask('default', 'build');
+
+    grunt.registerTask('docs', [
+      'ngdocs'
+    ]);
 };
