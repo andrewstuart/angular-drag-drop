@@ -97,6 +97,7 @@ angular.module('ngDrag').directive('ngDrop', ["DragData", function(DragData) {
     link: function postLink($scope, element, iAttrs) {
 
       element.on('dragover', function(e) {
+        e.preventDefault();
         if (iAttrs.dragOver) {
           $scope.$apply(function() {
             $scope.$eval(iAttrs.dragOver, {$event: e});
@@ -105,6 +106,7 @@ angular.module('ngDrag').directive('ngDrop', ["DragData", function(DragData) {
       });
 
       element.on('dragenter', function(e) {
+        e.preventDefault();
         var type = e.originalEvent.dataTransfer.getData('ngdrag/type');
         if(type === iAttrs.allowDrop) {
           event.dataTransfer.dropEffect = 'move';
@@ -114,6 +116,7 @@ angular.module('ngDrag').directive('ngDrop', ["DragData", function(DragData) {
       });
 
       element.on('drop', function(e) {
+        e.preventDefault();
         var id = e.originalEvent.dataTransfer.getData(iAttrs.allowDrop || 'ngdrag/id');
         if(!id) { return; }
         var from = DragData.get(id);
