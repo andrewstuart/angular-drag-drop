@@ -27,20 +27,24 @@ angular.module('ngDrag').directive('ngDrag', function (DragData) {
 
       if (iAttrs.dragEnd) {
         element.on('dragend', function(e) {
-          $scope.$eval(iAttrs.dragEnd, {$event: e});
-          $scope.$apply();
+          $scope.$apply(function() {
+            $scope.$eval(iAttrs.dragEnd, {$event: e});
+          });
         });
       }
 
       element.on('dragstart', function(e) {
-        e.stopPropagation();
-        e.originalEvent.dataTransfer.setData('ngdrag/type', iAttrs.ngDrag || 'ngdrag/id');
-        e.originalEvent.dataTransfer.setData(iAttrs.ngDrag || 'ngdrag/id', $scope.$id);
+        //Only add data if not already added (would be less specific)
+        if ( !e.originalEvent.dataTransfer.getData('ngdrag/type') ) {
+          e.originalEvent.dataTransfer.setData('ngdrag/type', iAttrs.ngDrag || 'ngdrag/id');
+          e.originalEvent.dataTransfer.setData(iAttrs.ngDrag || 'ngdrag/id', $scope.$id);
+        }
         DragData.add($scope);
 
         if (iAttrs.dragStart) {
-          $scope.$eval(iAttrs.dragStart, {$event: e});
-          $scope.$apply();
+          $scope.$apply(function() {
+            $scope.$eval(iAttrs.dragStart, {$event: e});
+          });
         }
       });
     }

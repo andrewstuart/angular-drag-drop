@@ -53,20 +53,24 @@ angular.module('ngDrag').directive('ngDrag', ["DragData", function (DragData) {
 
       if (iAttrs.dragEnd) {
         element.on('dragend', function(e) {
-          $scope.$eval(iAttrs.dragEnd, {$event: e});
-          $scope.$apply();
+          $scope.$apply(function() {
+            $scope.$eval(iAttrs.dragEnd, {$event: e});
+          });
         });
       }
 
       element.on('dragstart', function(e) {
-        e.stopPropagation();
-        e.originalEvent.dataTransfer.setData('ngdrag/type', iAttrs.ngDrag || 'ngdrag/id');
-        e.originalEvent.dataTransfer.setData(iAttrs.ngDrag || 'ngdrag/id', $scope.$id);
+        //Only add data if not already added (would be less specific)
+        if ( !e.originalEvent.dataTransfer.getData('ngdrag/type') ) {
+          e.originalEvent.dataTransfer.setData('ngdrag/type', iAttrs.ngDrag || 'ngdrag/id');
+          e.originalEvent.dataTransfer.setData(iAttrs.ngDrag || 'ngdrag/id', $scope.$id);
+        }
         DragData.add($scope);
 
         if (iAttrs.dragStart) {
-          $scope.$eval(iAttrs.dragStart, {$event: e});
-          $scope.$apply();
+          $scope.$apply(function() {
+            $scope.$eval(iAttrs.dragStart, {$event: e});
+          });
         }
       });
     }
@@ -93,16 +97,14 @@ angular.module('ngDrag').directive('ngDrop', ["DragData", function(DragData) {
     link: function postLink($scope, element, iAttrs) {
 
       element.on('dragover', function(e) {
-        e.preventDefault();
-
         if (iAttrs.dragOver) {
-          $scope.$eval(iAttrs.dragOver, {$event: e});
+          $scope.$apply(function() {
+            $scope.$eval(iAttrs.dragOver, {$event: e});
+          });
         }
       });
 
       element.on('dragenter', function(e) {
-        e.preventDefault();
-        e.stopPropagation();
         var type = e.originalEvent.dataTransfer.getData('ngdrag/type');
         if(type === iAttrs.allowDrop) {
           event.dataTransfer.dropEffect = 'move';
@@ -112,8 +114,6 @@ angular.module('ngDrag').directive('ngDrop', ["DragData", function(DragData) {
       });
 
       element.on('drop', function(e) {
-        e.preventDefault();
-
         var id = e.originalEvent.dataTransfer.getData(iAttrs.allowDrop || 'ngdrag/id');
         if(!id) { return; }
         var from = DragData.get(id);
