@@ -40,9 +40,9 @@ angular.module('ngDrag').directive('ngDrag', ["DragData", "$timeout", function (
    * <div class="item" ng-drag="item/{{item.id}}">...</div>
    * ```
    *
-   * @param {Expression} dragStart An expression that will be executed on
+   * @param {Expression} ngDragstart An expression that will be executed on
    * dragstart. Event available as `$event`.
-   * @param {Expression} dragEnd An expression that will be evaluated on
+   * @param {Expression} ngDragend An expression that will be evaluated on
    * dragend. Event available as `$event`.
    * @restrict A
    */
@@ -54,7 +54,7 @@ angular.module('ngDrag').directive('ngDrag', ["DragData", "$timeout", function (
       if (iAttrs.dragEnd) {
         element.on('dragend', function(e) {
           $timeout(function() {
-            $scope.$eval(iAttrs.dragEnd, {$event: e});
+            $scope.$eval(iAttrs.ngDragend, {$event: e});
           });
         });
       }
@@ -67,9 +67,11 @@ angular.module('ngDrag').directive('ngDrag', ["DragData", "$timeout", function (
         }
         DragData.add($scope);
 
-        if (iAttrs.dragStart) {
+        if (iAttrs.ngDragstart) {
+          //$timeout is necessary here to get around chrome bug where DOM
+          //manipulation on dragstart cancels the drag.
           $timeout(function() {
-            $scope.$eval(iAttrs.dragStart, {$event: e});
+            $scope.$eval(iAttrs.ngDragend, {$event: e});
           });
         }
       });
@@ -86,7 +88,7 @@ angular.module('ngDrag').directive('ngDrop', ["DragData", function(DragData) {
    * available as $from.
    * @param {Expression} dragOver An expression to evaluate on dragover.
    * @param {String} allowDrop A string that identifies the type of data that
-   * will trigger the ngDrop handler. Used in conjuction with `ng-drag="..."`,
+   * will trigger the ngDrop handler. Used in conjuction with `<ele ng-drag="..." ...></ele>`,
    * this is helpful for limiting what can be dropped on a particular target.
    * @description Allows an expression to be evaluated upon drop. Event
    * available as $event.

@@ -1,3 +1,5 @@
+'use strict';
+
 module.exports = function(grunt) {
   require('load-grunt-tasks')(grunt);
 
@@ -37,6 +39,18 @@ module.exports = function(grunt) {
         options: { spawn: false }
       }
     },
+    connect: {
+      docs: {
+        options: {
+          base: 'docs',
+          port: 9090,
+          hostname: 'localhost',
+          livereload: true,
+          open: true,
+          keepalive: true
+        }
+      }
+    },
     ngdocs: {
       options: {
         dest: 'docs'
@@ -54,6 +68,8 @@ module.exports = function(grunt) {
     'uglify',
     'docs'
   ]);
+
+  grunt.registerTask('serve-docs', ['build', 'connect']);
 
   grunt.registerTask('default', 'build');
 

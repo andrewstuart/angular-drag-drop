@@ -14,9 +14,9 @@ angular.module('ngDrag').directive('ngDrag', function (DragData, $timeout) {
    * <div class="item" ng-drag="item/{{item.id}}">...</div>
    * ```
    *
-   * @param {Expression} dragStart An expression that will be executed on
+   * @param {Expression} ngDragstart An expression that will be executed on
    * dragstart. Event available as `$event`.
-   * @param {Expression} dragEnd An expression that will be evaluated on
+   * @param {Expression} ngDragend An expression that will be evaluated on
    * dragend. Event available as `$event`.
    * @restrict A
    */
@@ -28,7 +28,7 @@ angular.module('ngDrag').directive('ngDrag', function (DragData, $timeout) {
       if (iAttrs.dragEnd) {
         element.on('dragend', function(e) {
           $timeout(function() {
-            $scope.$eval(iAttrs.dragEnd, {$event: e});
+            $scope.$eval(iAttrs.ngDragend, {$event: e});
           });
         });
       }
@@ -41,9 +41,11 @@ angular.module('ngDrag').directive('ngDrag', function (DragData, $timeout) {
         }
         DragData.add($scope);
 
-        if (iAttrs.dragStart) {
+        if (iAttrs.ngDragstart) {
+          //$timeout is necessary here to get around chrome bug where DOM
+          //manipulation on dragstart cancels the drag.
           $timeout(function() {
-            $scope.$eval(iAttrs.dragStart, {$event: e});
+            $scope.$eval(iAttrs.ngDragend, {$event: e});
           });
         }
       });
