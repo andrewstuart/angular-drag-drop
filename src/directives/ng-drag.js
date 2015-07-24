@@ -1,4 +1,4 @@
-angular.module('ngDrag').directive('ngDrag', function (DragData) {
+angular.module('ngDrag').directive('ngDrag', function (DragData, $timeout) {
   /**
    * @ngdoc directive
    * @name ngDrag.directive:ngDrag

@@ -24,7 +24,7 @@ SOFTWARE.
 
 angular.module('ngDrag', []);
 
-angular.module('ngDrag').directive('ngDrag', ["DragData", function (DragData) {
+angular.module('ngDrag').directive('ngDrag', ["DragData", "$timeout", function (DragData, $timeout) {
   /**
    * @ngdoc directive
    * @name ngDrag.directive:ngDrag
