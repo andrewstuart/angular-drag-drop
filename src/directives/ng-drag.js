@@ -1,4 +1,7 @@
-angular.module('ngDrag').directive('ngDrag', function (DragData, $timeout) {
+angular.module('ngDrag')
+.directive('ngDrag', function (DragData, $timeout) {
+  'use strict';
+
   /**
    * @ngdoc directive
    * @name ngDrag.directive:ngDrag
@@ -34,10 +37,13 @@ angular.module('ngDrag').directive('ngDrag', function (DragData, $timeout) {
       }
 
       element.on('dragstart', function(e) {
+
+        var event = e.originalEvent || e;
+
         //Only add data if not already added (would be less specific)
-        if ( !e.originalEvent.dataTransfer.getData('ngdrag/type') ) {
-          e.originalEvent.dataTransfer.setData('ngdrag/type', iAttrs.ngDrag || 'ngdrag/id');
-          e.originalEvent.dataTransfer.setData(iAttrs.ngDrag || 'ngdrag/id', $scope.$id);
+        if ( !event.dataTransfer.getData('ngdrag/type') ) {
+          event.dataTransfer.setData('ngdrag/type', iAttrs.ngDrag || 'ngdrag/id');
+          event.dataTransfer.setData(iAttrs.ngDrag || 'ngdrag/id', $scope.$id);
         }
         DragData.add($scope);
 

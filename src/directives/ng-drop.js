@@ -1,4 +1,6 @@
-angular.module('ngDrag').directive('ngDrop', function(DragData) {
+angular.module('ngDrag')
+.directive('ngDrop', function(DragData) {
+  'use strict';
 
   /**
    * @ngdoc directive
@@ -31,7 +33,7 @@ angular.module('ngDrag').directive('ngDrop', function(DragData) {
 
       element.on('dragenter', function(e) {
         e.preventDefault();
-        var type = e.originalEvent.dataTransfer.getData('ngdrag/type');
+        var type = (e.originalEvent || e).dataTransfer.getData('ngdrag/type');
 
         if(type === iAttrs.allowDrop) {
           event.dataTransfer.dropEffect = 'move';
@@ -43,7 +45,7 @@ angular.module('ngDrag').directive('ngDrop', function(DragData) {
       element.on('drop', function(e) {
         e.preventDefault();
 
-        var id = e.originalEvent.dataTransfer.getData(iAttrs.allowDrop || 'ngdrag/id');
+        var id = (e.originalEvent || e).dataTransfer.getData(iAttrs.allowDrop || 'ngdrag/id');
         if(!id) { return; }
         var from = DragData.get(id);
 

@@ -24,7 +24,10 @@ SOFTWARE.
 
 angular.module('ngDrag', []);
 
-angular.module('ngDrag').directive('ngDrag', ["DragData", "$timeout", function (DragData, $timeout) {
+angular.module('ngDrag')
+.directive('ngDrag', ["DragData", "$timeout", function (DragData, $timeout) {
+  'use strict';
+
   /**
    * @ngdoc directive
    * @name ngDrag.directive:ngDrag
@@ -60,10 +63,13 @@ angular.module('ngDrag').directive('ngDrag', ["DragData", "$timeout", function (
       }
 
       element.on('dragstart', function(e) {
+
+        var event = e.originalEvent || e;
+
         //Only add data if not already added (would be less specific)
-        if ( !e.originalEvent.dataTransfer.getData('ngdrag/type') ) {
-          e.originalEvent.dataTransfer.setData('ngdrag/type', iAttrs.ngDrag || 'ngdrag/id');
-          e.originalEvent.dataTransfer.setData(iAttrs.ngDrag || 'ngdrag/id', $scope.$id);
+        if ( !event.dataTransfer.getData('ngdrag/type') ) {
+          event.dataTransfer.setData('ngdrag/type', iAttrs.ngDrag || 'ngdrag/id');
+          event.dataTransfer.setData(iAttrs.ngDrag || 'ngdrag/id', $scope.$id);
         }
         DragData.add($scope);
 
@@ -79,17 +85,22 @@ angular.module('ngDrag').directive('ngDrag', ["DragData", "$timeout", function (
   };
 }]);
 
-angular.module('ngDrag').directive('ngDrop', ["DragData", function(DragData) {
+angular.module('ngDrag')
+.directive('ngDrop', ["DragData", function(DragData) {
+  'use strict';
 
   /**
    * @ngdoc directive
    * @name uni.directive:ngDrop
    * @param {Expression} ngDrop The expression to evaluate upon drop. If dropped element came from ngDrag, the ngDrag $scope is
    * available as $from.
-   * @param {Expression} dragOver An expression to evaluate on dragover.
+   * @param {Expression} ngDragover An expression to evaluate on dragover.
    * @param {String} allowDrop A string that identifies the type of data that
    * will trigger the ngDrop handler. Used in conjuction with `<ele ng-drag="..." ...></ele>`,
    * this is helpful for limiting what can be dropped on a particular target.
+   *
+   * If the event has no data for the provided type, then the ng-drop function
+   * will not be called.
    * @description Allows an expression to be evaluated upon drop. Event
    * available as $event.
    * @restrict A
@@ -100,16 +111,17 @@ angular.module('ngDrag').directive('ngDrop', ["DragData", function(DragData) {
 
       element.on('dragover', function(e) {
         e.preventDefault();
-        if (iAttrs.dragOver) {
+        if (iAttrs.ngDragover) {
           $scope.$apply(function() {
-            $scope.$eval(iAttrs.dragOver, {$event: e});
+            $scope.$eval(iAttrs.ngDragover, {$event: e});
           });
         }
       });
 
       element.on('dragenter', function(e) {
         e.preventDefault();
-        var type = e.originalEvent.dataTransfer.getData('ngdrag/type');
+        var type = (e.originalEvent || e).dataTransfer.getData('ngdrag/type');
+
         if(type === iAttrs.allowDrop) {
           event.dataTransfer.dropEffect = 'move';
         } else {
@@ -119,7 +131,8 @@ angular.module('ngDrag').directive('ngDrop', ["DragData", function(DragData) {
 
       element.on('drop', function(e) {
         e.preventDefault();
-        var id = e.originalEvent.dataTransfer.getData(iAttrs.allowDrop || 'ngdrag/id');
+
+        var id = (e.originalEvent || e).dataTransfer.getData(iAttrs.allowDrop || 'ngdrag/id');
         if(!id) { return; }
         var from = DragData.get(id);
 
