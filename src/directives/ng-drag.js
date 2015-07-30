@@ -51,7 +51,7 @@ angular.module('ngDrag')
           //$timeout is necessary here to get around chrome bug where DOM
           //manipulation on dragstart cancels the drag.
           $timeout(function() {
-            $scope.$eval(iAttrs.ngDragend, {$event: e});
+            $scope.$eval(iAttrs.ngDragstart, {$event: e});
           });
         }
       });
