@@ -19,5 +19,8 @@
     "test",
     "tests",
     "src"
-  ]
+  ],
+  "dependencies": {
+    "angular": "~1.4.3"
+  }
 }
