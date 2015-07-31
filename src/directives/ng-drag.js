@@ -28,7 +28,7 @@ angular.module('ngDrag')
     link: function postLink($scope, element, iAttrs) {
       element.attr('draggable', 'true');
 
-      if (iAttrs.dragEnd) {
+      if (iAttrs.ngDragend) {
         element.on('dragend', function(e) {
           $timeout(function() {
             $scope.$eval(iAttrs.ngDragend, {$event: e});
