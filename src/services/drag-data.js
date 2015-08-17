@@ -1,8 +1,8 @@
-angular.module('ngDrag').service('DragData', function () {
+angular.module('angular-drag-drop').service('DragData', function () {
 
   /**
    * @ngdoc service
-   * @name ngDrag.service:DragData
+   * @name angular-drag-drop.service:DragData
    * @description `DragData` is a service that holds references to $scopes for
    * the drag directives. The source will be exposed for the ng-drop expression.
    */
@@ -11,8 +11,8 @@ angular.module('ngDrag').service('DragData', function () {
 
         /**
          * @ngdoc
-         * @methodOf ngDrag.service:DragData
-         * @name ngDrag.service:DragData#add
+         * @methodOf angular-drag-drop.service:DragData
+         * @name angular-drag-drop.service:DragData#add
          * @param {Scope} scope The scope to track
          * @description `add` adds a scope to the service to be tracked by its
          * $id.
@@ -31,8 +31,8 @@ angular.module('ngDrag').service('DragData', function () {
 
     /**
      * @ngdoc
-     * @methodOf ngDrag.service:DragData
-     * @name ngDrag.service:DragData#get
+     * @methodOf angular-drag-drop.service:DragData
+     * @name angular-drag-drop.service:DragData#get
      * @param {String} id The $id of the scope that you want returned.
      * @description `get` returns the scope with the given $id.
      */

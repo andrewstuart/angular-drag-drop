@@ -1,1 +1,1 @@
-angular.module('ngDrag', []);
+angular.module('angular-drag-drop', []);

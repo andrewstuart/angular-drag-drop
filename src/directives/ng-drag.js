@@ -1,10 +1,10 @@
-angular.module('ngDrag')
-.directive('ngDrag', function (DragData, $timeout) {
+angular.module('angular-drag-drop')
+.directive('angular-drag-drop', function (DragData, $timeout) {
   'use strict';
 
   /**
    * @ngdoc directive
-   * @name ngDrag.directive:ngDrag
+   * @name angular-drag-drop.directive:ngDrag
    * @description A directive that allows an item to be dragged and its $scope
    * tracked and provided to the drop target upon drop.
    * @param {String} ngDrag Either emtpy or a string that can be used to
