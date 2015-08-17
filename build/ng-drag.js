@@ -25,7 +25,7 @@ SOFTWARE.
 angular.module('angular-drag-drop', []);
 
 angular.module('angular-drag-drop')
-.directive('angular-drag-drop', ["DragData", "$timeout", function (DragData, $timeout) {
+.directive('ngDrag', ["DragData", "$timeout", function (DragData, $timeout) {
   'use strict';
 
   /**
@@ -48,6 +48,21 @@ angular.module('angular-drag-drop')
    * @param {Expression} ngDragend An expression that will be evaluated on
    * dragend. Event available as `$event`.
    * @restrict A
+   * @example
+   * <example>
+   *   <file name="example.js">
+   *     angular.module('test', ['angular-drag-drop'])
+   *     .controller('example', function($scope) {
+   *       $scope.tests = ['foo', 'bar', 'baz'];
+   *     });
+   *   </file>
+   *   <file name="example.html">
+   *     <div ng-app="test" ng-controller="ExController">
+   *       <div ng-repeat="data in tests" ng-drag="test">{{data}}</div>
+   *       <div ng-drop="$scope.data = $from.data" ng-allow-drop="test">{{data}}</div>
+   *     </div>
+   *   </file>
+   * </example>
    */
   return {
     restrict: 'A',
