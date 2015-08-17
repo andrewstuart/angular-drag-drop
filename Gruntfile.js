@@ -4,6 +4,9 @@ module.exports = function(grunt) {
   require('load-grunt-tasks')(grunt);
 
   grunt.initConfig({
+    opts: {
+      livereload: 35102
+    },
     license: '/*! <%= grunt.file.read("./LICENSE") %>*/\n\n',
     concat: {
       all: {
@@ -31,12 +34,14 @@ module.exports = function(grunt) {
     },
     watch: {
       all: {
+        options: {
+          livereload: '<%= opts.livereload %>'
+        },
         files: ['src/**/*.js'],
         tasks: [
           'build',
           'docs:ngdrag'
-        ],
-        options: { spawn: false }
+        ]
       }
     },
     connect: {
@@ -45,9 +50,8 @@ module.exports = function(grunt) {
           base: 'docs',
           port: 9090,
           hostname: 'localhost',
-          livereload: true,
-          open: true,
-          keepalive: true
+          livereload: '<%= opts.livereload %>',
+          open: true
         }
       }
     },
@@ -76,7 +80,11 @@ module.exports = function(grunt) {
     'docs:ngdrag'
   ]);
 
-  grunt.registerTask('serve-docs', ['build', 'connect']);
+  grunt.registerTask('serve-docs', [
+    'build',
+    'connect',
+    'watch'
+  ]);
 
   grunt.registerTask('default', 'build');
 
