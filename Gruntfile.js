@@ -33,6 +33,13 @@ module.exports = function(grunt) {
       }
     },
     watch: {
+      gruntfile: {
+        options: {
+          livereload: '<%= opts.livereload %>'
+        },
+        files: ['Gruntfile.js'],
+        tasks: ['docs']
+      },
       all: {
         options: {
           livereload: '<%= opts.livereload %>'
@@ -40,7 +47,7 @@ module.exports = function(grunt) {
         files: ['src/**/*.js'],
         tasks: [
           'build',
-          'docs:ngdrag'
+          'docs'
         ]
       }
     },
@@ -57,18 +64,20 @@ module.exports = function(grunt) {
     },
     ngdocs: {
       options: {
-        dest: 'docs'
+        dest: 'docs',
+        title: 'Angular Drag/Drop',
       },
       ngdrag: {
-        src: ['src/**/*.js'],
-        title: 'ngDrag'
+        src: ['src/**/*.js']
       },
       pages: {
         options: {
-          dest: ''
+          dest: '',
+          titleLink: '/ngdoc',
+          startPage: '/ngdoc'
         },
         src: ['src/**/*.js'],
-        title: 'ngDrag'
+        title: 'angular-drag-drop'
       }
     }
   });
