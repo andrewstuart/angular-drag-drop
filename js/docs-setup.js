@@ -18,8 +18,8 @@ NG_DOCS={
       "shortName": "ngDragenter",
       "type": "directive",
       "moduleName": "ngDrag",
-      "shortDescription": "A directive that will execute some function on dragenter",
-      "keywords": "directive dragenter execute executed expression function ngdrag ngdragenter"
+      "shortDescription": "Evaluates some expression on dragenter",
+      "keywords": "directive dragenter evaluates executed expression ngdrag ngdragenter"
     },
     {
       "section": "pages",
@@ -27,8 +27,8 @@ NG_DOCS={
       "shortName": "ngDragleave",
       "type": "directive",
       "moduleName": "ngDrag",
-      "shortDescription": "A directive that will execute the provided expression on dragleave",
-      "keywords": "directive dragenter dragleave execute executed expression ngdrag ngdragleave provided"
+      "shortDescription": "Evaluates some expression on the dragleave event",
+      "keywords": "directive dragleave evaluates event executed expression ngdrag ngdragleave"
     },
     {
       "section": "pages",
