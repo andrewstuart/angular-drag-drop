@@ -1,10 +1,10 @@
-angular.module('ngDrag')
+angular.module('angular-drag-drop')
 .directive('ngDragenter', function ($timeout) {
   'use strict';
 
   /**
    * @ngdoc directive
-   * @name ngDrag.directive:ngDragenter
+   * @name angular-drag-drop.directive:ngDragenter
    * @param {Expression} ngDragenter An expression to be executed on dragenter
    * @description Evaluates some expression on dragenter
    * @restrict A
@@ -26,7 +26,7 @@ angular.module('ngDrag')
 
   /**
    * @ngdoc directive
-   * @name ngDrag.directive:ngDragleave
+   * @name angular-drag-drop.directive:ngDragleave
    * @param {Expression} ngDragleave An expression to be executed on dragleave
    * @description Evaluates some expression on the dragleave event
    * @restrict A

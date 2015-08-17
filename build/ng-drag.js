@@ -22,15 +22,15 @@ SOFTWARE.
 
 */
 
-angular.module('ngDrag', []);
+angular.module('angular-drag-drop', []);
 
-angular.module('ngDrag')
-.directive('ngDrag', ["DragData", "$timeout", function (DragData, $timeout) {
+angular.module('angular-drag-drop')
+.directive('angular-drag-drop', ["DragData", "$timeout", function (DragData, $timeout) {
   'use strict';
 
   /**
    * @ngdoc directive
-   * @name ngDrag.directive:ngDrag
+   * @name angular-drag-drop.directive:ngDrag
    * @description A directive that allows an item to be dragged and its $scope
    * tracked and provided to the drop target upon drop.
    * @param {String} ngDrag Either emtpy or a string that can be used to
@@ -85,13 +85,13 @@ angular.module('ngDrag')
   };
 }]);
 
-angular.module('ngDrag')
+angular.module('angular-drag-drop')
 .directive('ngDragenter', ["$timeout", function ($timeout) {
   'use strict';
 
   /**
    * @ngdoc directive
-   * @name ngDrag.directive:ngDragenter
+   * @name angular-drag-drop.directive:ngDragenter
    * @param {Expression} ngDragenter An expression to be executed on dragenter
    * @description Evaluates some expression on dragenter
    * @restrict A
@@ -113,7 +113,7 @@ angular.module('ngDrag')
 
   /**
    * @ngdoc directive
-   * @name ngDrag.directive:ngDragleave
+   * @name angular-drag-drop.directive:ngDragleave
    * @param {Expression} ngDragleave An expression to be executed on dragleave
    * @description Evaluates some expression on the dragleave event
    * @restrict A
@@ -136,7 +136,7 @@ angular.module('ngDrag')
   };
 }]);
 
-angular.module('ngDrag')
+angular.module('angular-drag-drop')
 .directive('ngDrop', ["DragData", function(DragData) {
   'use strict';
 
@@ -198,11 +198,11 @@ angular.module('ngDrag')
   };
 }]);
 
-angular.module('ngDrag').service('DragData', function () {
+angular.module('angular-drag-drop').service('DragData', function () {
 
   /**
    * @ngdoc service
-   * @name ngDrag.service:DragData
+   * @name angular-drag-drop.service:DragData
    * @description `DragData` is a service that holds references to $scopes for
    * the drag directives. The source will be exposed for the ng-drop expression.
    */
@@ -211,8 +211,8 @@ angular.module('ngDrag').service('DragData', function () {
 
         /**
          * @ngdoc
-         * @methodOf ngDrag.service:DragData
-         * @name ngDrag.service:DragData#add
+         * @methodOf angular-drag-drop.service:DragData
+         * @name angular-drag-drop.service:DragData#add
          * @param {Scope} scope The scope to track
          * @description `add` adds a scope to the service to be tracked by its
          * $id.
@@ -231,8 +231,8 @@ angular.module('ngDrag').service('DragData', function () {
 
     /**
      * @ngdoc
-     * @methodOf ngDrag.service:DragData
-     * @name ngDrag.service:DragData#get
+     * @methodOf angular-drag-drop.service:DragData
+     * @name angular-drag-drop.service:DragData#get
      * @param {String} id The $id of the scope that you want returned.
      * @description `get` returns the scope with the given $id.
      */

@@ -1,4 +1,4 @@
-angular.module('ngDrag')
+angular.module('angular-drag-drop')
 .directive('ngDrop', function(DragData) {
   'use strict';
 
