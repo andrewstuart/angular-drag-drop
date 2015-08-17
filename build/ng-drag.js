@@ -92,10 +92,11 @@ angular.module('ngDrag')
   /**
    * @ngdoc directive
    * @name ngDrag.directive:ngDragenter
-   * @description A directive that will execute some function on dragenter
-   * @param {Expression} ngDragenter An expression to be executed on dragenter.
+   * @param {Expression} ngDragenter An expression to be executed on dragenter
+   * @description Evaluates some expression on dragenter
    * @restrict A
    */
+
   return {
     restrict: 'A',
     link: function postLink($scope, iEle, iAttrs) {
@@ -113,10 +114,11 @@ angular.module('ngDrag')
   /**
    * @ngdoc directive
    * @name ngDrag.directive:ngDragleave
-   * @description A directive that will execute the provided expression on dragleave
-   * @param {Expression} ngDragleave An expression to be executed on dragenter.
+   * @param {Expression} ngDragleave An expression to be executed on dragleave
+   * @description Evaluates some expression on the dragleave event
    * @restrict A
    */
+
   return {
     restrict: 'A',
     link: function postLink($scope, iEle, iAttrs) {
