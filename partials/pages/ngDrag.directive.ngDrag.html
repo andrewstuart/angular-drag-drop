@@ -1,0 +1,28 @@
+<h1><code ng:non-bindable="">ngDrag</code>
+<div><span class="hint">directive in module <code ng:non-bindable="">ngDrag</code>
+</span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="ngdrag-directive-page ngdrag-directive-ngdrag-page"><p>A directive that allows an item to be dragged and its $scope
+tracked and provided to the drop target upon drop.</p>
+</div></div>
+<h2 id="usage">Usage</h2>
+<div class="usage">as attribute<pre class="prettyprint linenums">&lt;ANY ng-drag="{String}"
+     ng-dragstart="{Expression}"
+     ng-dragend="{Expression}"&gt;
+   ...
+&lt;/ANY&gt;</pre>
+<h4 id="usage_parameters">Parameters</h4><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>ngDrag</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="ngdrag-directive-page ngdrag-directive-ngdrag-page"><p>Either emtpy or a string that can be used to
+identify the type of data that is being transferred. This is most useful
+for limiting where an item can be dropped. For example, say you show
+multiple items each with multiple steps, and you want to limit dragging
+steps to the same item.</p>
+<pre><code class="lang-html">&lt;div class=&quot;item&quot; ng-drag=&quot;item/{{item.id}}&quot;&gt;...&lt;/div&gt;
+</code></pre>
+</div></td></tr><tr><td>ngDragstart</td><td><a href="" class="label type-hint type-hint-expression">Expression</a></td><td><div class="ngdrag-directive-page ngdrag-directive-ngdrag-page"><p>An expression that will be executed on
+dragstart. Event available as <code>$event</code>.</p>
+</div></td></tr><tr><td>ngDragend</td><td><a href="" class="label type-hint type-hint-expression">Expression</a></td><td><div class="ngdrag-directive-page ngdrag-directive-ngdrag-page"><p>An expression that will be evaluated on
+dragend. Event available as <code>$event</code>.</p>
+</div></td></tr></tbody></table></div>
+</div>

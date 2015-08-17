@@ -1,0 +1,25 @@
+<h1><code ng:non-bindable="">ngDrop</code>
+<div><span class="hint">directive in module <code ng:non-bindable="">uni</code>
+</span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="uni-directive-page uni-directive-ngdrop-page"><p>Allows an expression to be evaluated upon drop. Event
+available as $event.</p>
+</div></div>
+<h2 id="usage">Usage</h2>
+<div class="usage">as attribute<pre class="prettyprint linenums">&lt;ANY ng-drop="{Expression}"
+     ng-dragover="{Expression}"
+     allow-drop="{String}"&gt;
+   ...
+&lt;/ANY&gt;</pre>
+<h4 id="usage_parameters">Parameters</h4><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>ngDrop</td><td><a href="" class="label type-hint type-hint-expression">Expression</a></td><td><div class="uni-directive-page uni-directive-ngdrop-page"><p>The expression to evaluate upon drop. If dropped element came from ngDrag, the ngDrag $scope is
+available as $from.</p>
+</div></td></tr><tr><td>ngDragover</td><td><a href="" class="label type-hint type-hint-expression">Expression</a></td><td><div class="uni-directive-page uni-directive-ngdrop-page"><p>An expression to evaluate on dragover.</p>
+</div></td></tr><tr><td>allowDrop</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="uni-directive-page uni-directive-ngdrop-page"><p>A string that identifies the type of data that
+will trigger the ngDrop handler. Used in conjuction with <code>&lt;ele ng-drag=&quot;...&quot; ...&gt;&lt;/ele&gt;</code>,
+this is helpful for limiting what can be dropped on a particular target.</p>
+<p>If the event has no data for the provided type, then the ng-drop function
+will not be called.</p>
+</div></td></tr></tbody></table></div>
+</div>
