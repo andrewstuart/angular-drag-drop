@@ -32,21 +32,21 @@ NG_DOCS={
     },
     {
       "section": "pages",
+      "id": "ngDrag.service:DragData",
+      "shortName": "DragData",
+      "type": "service",
+      "moduleName": "ngDrag",
+      "shortDescription": "DragData is a service that holds references to $scopes for",
+      "keywords": "$id $scopes add adds directives drag dragdata exposed expression holds ng-drop ngdrag references returned returns scope service source track tracked"
+    },
+    {
+      "section": "pages",
       "id": "uni.directive:ngDrop",
       "shortName": "ngDrop",
       "type": "directive",
       "moduleName": "uni",
       "shortDescription": "Allows an expression to be evaluated upon drop. Event",
       "keywords": "$event $from $scope allowdrop allows called conjuction data directive dragover drop dropped element evaluate evaluated event expression function handler helpful identifies limiting ng-drag ng-drop ngdrag ngdragover ngdrop provided string target trigger type uni"
-    },
-    {
-      "section": "pages",
-      "id": "uni.service:DragData",
-      "shortName": "DragData",
-      "type": "service",
-      "moduleName": "uni",
-      "shortDescription": "The DragData service is a simple service for holding references to a",
-      "keywords": "cleaning dragdata drop event holding ngdrag reference references scope service simple time uni"
     }
   ],
   "apis": {
