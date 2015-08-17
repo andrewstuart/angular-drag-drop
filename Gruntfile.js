@@ -61,7 +61,7 @@ module.exports = function(grunt) {
       },
       pages: {
         options: {
-          dest: '.'
+          dest: ''
         },
         src: ['src/**/*.js'],
         title: 'ngDrag'
