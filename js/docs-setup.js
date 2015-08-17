@@ -1,43 +1,43 @@
 NG_DOCS={
   "sections": {
-    "pages": "ngDrag"
+    "pages": "angular-drag-drop"
   },
   "pages": [
     {
       "section": "pages",
-      "id": "ngDrag.directive:ngDrag",
+      "id": "angular-drag-drop.directive:ngDrag",
       "shortName": "ngDrag",
       "type": "directive",
-      "moduleName": "ngDrag",
+      "moduleName": "angular-drag-drop",
       "shortDescription": "A directive that allows an item to be dragged and its $scope",
-      "keywords": "$event $scope allows class data directive dragend dragged dragging dragstart drop dropped emtpy evaluated event example executed expression html identify item items limit limiting multiple ng-drag ngdrag ngdragend ngdragstart provided steps string target tracked transferred type"
+      "keywords": "$event $scope allows angular-drag-drop class data directive dragend dragged dragging dragstart drop dropped emtpy evaluated event example executed expression html identify item items limit limiting multiple ng-drag ngdrag ngdragend ngdragstart provided steps string target tracked transferred type"
     },
     {
       "section": "pages",
-      "id": "ngDrag.directive:ngDragenter",
+      "id": "angular-drag-drop.directive:ngDragenter",
       "shortName": "ngDragenter",
       "type": "directive",
-      "moduleName": "ngDrag",
+      "moduleName": "angular-drag-drop",
       "shortDescription": "Evaluates some expression on dragenter",
-      "keywords": "directive dragenter evaluates executed expression ngdrag ngdragenter"
+      "keywords": "angular-drag-drop directive dragenter evaluates executed expression ngdragenter"
     },
     {
       "section": "pages",
-      "id": "ngDrag.directive:ngDragleave",
+      "id": "angular-drag-drop.directive:ngDragleave",
       "shortName": "ngDragleave",
       "type": "directive",
-      "moduleName": "ngDrag",
+      "moduleName": "angular-drag-drop",
       "shortDescription": "Evaluates some expression on the dragleave event",
-      "keywords": "directive dragleave evaluates event executed expression ngdrag ngdragleave"
+      "keywords": "angular-drag-drop directive dragleave evaluates event executed expression ngdragleave"
     },
     {
       "section": "pages",
-      "id": "ngDrag.service:DragData",
+      "id": "angular-drag-drop.service:DragData",
       "shortName": "DragData",
       "type": "service",
-      "moduleName": "ngDrag",
+      "moduleName": "angular-drag-drop",
       "shortDescription": "DragData is a service that holds references to $scopes for",
-      "keywords": "$id $scopes add adds directives drag dragdata exposed expression holds ng-drop ngdrag references returned returns scope service source track tracked"
+      "keywords": "$id $scopes add adds angular-drag-drop directives drag dragdata exposed expression holds ng-drop references returned returns scope service source track tracked"
     },
     {
       "section": "pages",
@@ -54,7 +54,7 @@ NG_DOCS={
   },
   "html5Mode": false,
   "editExample": true,
-  "startPage": "/api",
+  "startPage": "/ngdoc",
   "scripts": [
     "angular.min.js"
   ]
