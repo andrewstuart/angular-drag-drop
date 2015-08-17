@@ -34,7 +34,7 @@ module.exports = function(grunt) {
         files: ['src/**/*.js'],
         tasks: [
           'build',
-          'docs'
+          'docs:ngdrag'
         ],
         options: { spawn: false }
       }
@@ -58,6 +58,13 @@ module.exports = function(grunt) {
       ngdrag: {
         src: ['src/**/*.js'],
         title: 'ngDrag'
+      },
+      pages: {
+        options: {
+          dest: '.'
+        },
+        src: ['src/**/*.js'],
+        title: 'ngDrag'
       }
     }
   });
@@ -66,7 +73,7 @@ module.exports = function(grunt) {
     'concat',
     'ngAnnotate',
     'uglify',
-    'docs'
+    'docs:ngdrag'
   ]);
 
   grunt.registerTask('serve-docs', ['build', 'connect']);
@@ -74,6 +81,6 @@ module.exports = function(grunt) {
   grunt.registerTask('default', 'build');
 
   grunt.registerTask('docs', [
-    'ngdocs'
+    'ngdocs:ngdrag'
   ]);
 };
