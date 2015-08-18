@@ -10,7 +10,7 @@ NG_DOCS={
       "type": "directive",
       "moduleName": "angular-drag-drop",
       "shortDescription": "A directive that allows an item to be dragged and its $scope",
-      "keywords": "$event $scope allows angular-drag-drop class data directive dragend dragged dragging dragstart drop dropped emtpy evaluated event example executed expression html identify item items limit limiting multiple ng-drag ngdrag ngdragend ngdragstart provided steps string target tracked transferred type"
+      "keywords": "$event $from $scope alert allow-drop allows angular angular-drag-drop background-color black blue center class color colors controller current data ddd directive display div drag dragend dragged dragging dragstart drop dropped emtpy evaluated event example example2 excontroller executed expression function green height html identify inline-block item items js limit limiting margin min-width module multiple ng-controller ng-drag ng-drop ng-repeat ngdrag ngdragend ngdragstart num number numbers padding parent ped provided red rgba steps string style target test test2 tests text-align tracked transferred type white yellow"
     },
     {
       "section": "pages",
@@ -56,6 +56,7 @@ NG_DOCS={
   "editExample": true,
   "startPage": "/ngdoc",
   "scripts": [
-    "angular.min.js"
+    "angular.min.js",
+    "ng-drag.js"
   ]
 };
