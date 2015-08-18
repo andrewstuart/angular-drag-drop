@@ -1,3 +1,3 @@
 # angular-drag-drop
 
-[Documentation here](//andrewstuart.github.io/ngDrag)
+[Documentation here](//andrewstuart.github.io/angular-drag-drop)
