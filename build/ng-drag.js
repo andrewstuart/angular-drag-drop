@@ -25,7 +25,7 @@ SOFTWARE.
 angular.module('angular-drag-drop', []);
 
 angular.module('angular-drag-drop')
-.directive('angular-drag-drop', ["DragData", "$timeout", function (DragData, $timeout) {
+.directive('ngDrag', ["DragData", "$timeout", function (DragData, $timeout) {
   'use strict';
 
   /**
@@ -48,6 +48,84 @@ angular.module('angular-drag-drop')
    * @param {Expression} ngDragend An expression that will be evaluated on
    * dragend. Event available as `$event`.
    * @restrict A
+   * @example
+   * <example module="test">
+   *   <file name="example.js">
+   *     angular.module('test', ['angular-drag-drop'])
+   *     .controller('ExController', function($scope) {
+   *       $scope.tests = ['green', 'yellow', 'red'];
+   *       $scope.alert = function(msg) {
+   *         alert(msg);
+   *       };
+   *     });
+   *   </file>
+   *   <file name="example.html">
+   *     <style>
+   *       .parent div {
+   *         height: 3em;
+   *         background-color: rgba(0, 0, 0, 0.1);
+   *         margin: 1em;
+   *       }
+   *     </style>
+   *     <div class="parent" ng-controller="ExController">
+   *       <div ng-repeat="data in tests" style="background-color: {{data}};" ng-drag>
+   *         {{data}} (Drag Me)
+   *       </div>
+   *       <div ng-drop="dropped = $from.data" style="background-color: {{dropped}};">
+   *         {{dropped}} (Drop{{dropped && 'ped'}} here)
+   *       </div>
+   *     </div>
+   *   </file>
+   * </example>
+   * <example module="test2">
+   * <file name="example2.js">
+   *   angular.module('test2', ['angular-drag-drop'])
+   *     .controller('test', function($scope) {
+   *       $scope.data = [{
+   *         color: 'red',
+   *         numbers: [1, 2, 3]
+   *       },{
+   *         color: 'green',
+   *         numbers: [4, 5, 6]
+   *       },{
+   *         color: 'blue',
+   *         numbers: [7, 8, 9]
+   *       }]
+   *     });
+   * </file>
+   * <file name="example2.html">
+   *   <style>
+   *     .target {
+   *       background-color: #ddd;
+   *       height: 2em;
+   *       min-width: 8em;
+   *     }
+   *
+   *
+   *     .num {
+   *       display: inline-block;
+   *       background-color: rgba(0, 0, 0, 0.1);
+   *       padding: 1em;
+   *       text-align: center;
+   *       color: white;
+   *       margin: 1em;
+   *     }
+   *
+   *     .target.num { color: black; }
+   *   </style>
+   *   <p>Notice you can only drag between like colors.</p>
+   *   <div ng-controller="test">
+   *     <div ng-repeat="color in data" style="background-color: {{color.color}};">
+   *       <div class="num" ng-repeat="number in color.numbers" ng-drag="color/{{color.color}}">
+   *         {{number}}
+   *       </div>
+   *       <div class="target num" ng-drop="current = $from.number" allow-drop="color/{{color.color}}">
+   *         {{current || 'Drag ' + color.color + ' Here'}}
+   *       </div>
+   *     </div>
+   *   </div>
+   * </file>
+   * </example>
    */
   return {
     restrict: 'A',

@@ -64,6 +64,7 @@ module.exports = function(grunt) {
     },
     ngdocs: {
       options: {
+        scripts: ['angular.js', 'build/ng-drag.js'],
         dest: 'docs',
         title: 'Angular Drag/Drop',
       },
