@@ -144,8 +144,15 @@ angular.module('angular-drag-drop')
 
         var event = e.originalEvent || e;
 
+        var type;
+        try {
+          type = event.dataTransfer.getData('ngdrag/type');
+        } catch (e) {
+          console.log(e);
+        }
+
         //Only add data if not already added (would be less specific)
-        if ( !event.dataTransfer.getData('ngdrag/type') ) {
+        if ( !type ) {
           event.dataTransfer.setData('ngdrag/type', iAttrs.ngDrag || 'ngdrag/id');
           event.dataTransfer.setData(iAttrs.ngDrag || 'ngdrag/id', $scope.$id);
         }
